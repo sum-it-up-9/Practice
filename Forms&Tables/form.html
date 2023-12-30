@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Forms</title>
+        <meta name="description" content="This is form page">
+        <meta name="viewport" content="width=device-width">
+        <link  href="styles.css" rel="stylesheet">
+  
+    </head>
+
+    <body>
+        <div >
+            <h1>Registration form</h1>
+            <form action="">
+                <div>
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="fname"   placeholder="enter first name" minlength="3"  required>
+                </div>
+            
+                <div>
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name="lname" placeholder="Enter Last Name" required>
+                </div>
+
+                <div>
+                    <label for="selection">Select a category:</label>
+                    <select name="category" id="selection">
+                        <option value="bike">Bikes</option>
+                        <option value="car">Cars</option>
+                        <option value="truck">Trucks</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="email2">EMail</label>
+                    <input type="email" name="email" id="email2" placeholder="Enter your email" required>
+                </div>
+                
+                <div>
+                    <label for="pass">Password</label>
+                    <input type="password" name="password" id="pass" required>
+                </div>
+
+                <div>
+                    <div>Select a Race</div>
+                    <label for="Race">Fun Race</label>
+                    <input type="radio" name="racetype" value="Fun" id="Race">
+
+                    <label for="runner">Runner xz-5</label>
+                    <input type="radio" id="runner" value="xz5" name="racetype">
+
+                    <label for="xtz">Full XTZ</label>
+                    <input type="radio" name="racetype" value="XTZ" id="xtz">
+                </div>
+
+                <button >Register</button>
+            </form>
+        </div>
+
+        <div>
+            <form action="" enctype="multipart/form-data">
+                <h1>Form-2 </h1>
+
+                <div>
+                    <label for="num">Enter Number</label>
+                    <input type="number" id="num" name="number" step="0.1" min="100" max="1000" required>
+                </div>
+
+                <div>
+                    <label for="mon">Select Month</label>
+                    <input type="month" id="mon" name="month" min="2018-01" max="2022-09" required>
+                </div>
+
+                <div>
+                    <label for="date">Select date</label>
+                    <input type="date" name="date" id="date" min="2018-09-01" max="2044-09-01" required>
+                </div>
+
+                <div>
+                    <label for="fileupload">Uplaod file</label>
+                    <input name="files" type="file" id="fileupload" multiple accept=".pdf,.doc,.docs,.jpg, .jpeg, .png" required>
+                </div>
+
+                <button >Submit</button>
+            </form>
+        </div>
+
+
+        <div>
+            <form action="">
+                <h1>Form-3 </h1>
+
+                <div>
+                    <label for="url">Enter url</label>
+                    <input type="url" id="url" name="url" size="20" maxlength="300" required >
+                </div>
+              
+                <div>
+                    <label for="tt">select time:</label>
+                    <input type="time" id="tt" name="time" min="09:00" max="18:00" required />
+                </div>
+
+                <div>
+                    <label for="telephone">Enter Phone</label>
+                    <input type="tel" pattern="[0-9]{10}" id="telephone" name="phone" required>
+                </div>
+
+                <div>
+                    <label for="optionlist">Dropwdown List</label>
+                    <select name="num" id="optionlist" required>
+                        <option value="one">1</option>
+                        <option value="two">2</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="radio">Radio option -1</label>
+                    <input type="radio" value="op1" name="radio" id="radio" required>
+                    
+                    <label for="rad">Radio option-2</label>
+                    <input type="radio" value="op2" name="radio" id="rad">
+                </div>
+
+                <button>submit</button>
+              
+            </form>
+        </div>
+        
+<!-- this is a comment-->
+        <div>
+            <h1>Form -4</h1>
+            <form action="">
+                <div>
+                    <label for="range">Select range</label>
+                    <input type="range" name="range" id="range" min="1" max="101" value="1" step="20" required>
+                </div>
+
+                <div>
+                    <label for="search">Seach the words</label>
+                    <input type="search" name="q" id="search" required>
+                </div>
+
+                <div>
+                    <label for="name">Name</label>
+                    <input id="name" type="text"  required placeholder="enter name">
+                </div>
+
+                <div><input type="reset"></div>
+
+                <div>
+                    <div>Select chekcboxes</div>
+                    <label for="box1">Box1</label>
+                    <input type="checkbox" id="box1" name="checkbox1" value="box1" checked>
+
+                    <div>
+                        <label for="box2">Box2</label>
+                        <input type="checkbox" id="box2" value="box2" name="checkbox2" >
+    
+                    </div>
+                 
+                    <button>submit</button>
+
+                </div>
+            </form>
+        </div>
+
+        <div>
+            <form action="">
+                <h1>form-5</h1>
+                
+                            
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <div>
+                    <label for="birthdate">Date of Birth:</label>
+                    <input type="date" id="birthdate" min="2018-01-01" max="2018-12-31" name="birthdate">
+                </div>
+
+                <div>
+                    <label>Gender:</label>
+                    <label for="male">Male</label>
+                    <input type="radio" id="male" name="gender" value="male">
+                    
+                    <label for="female">Female</label>
+                    <input type="radio" id="female" name="gender" value="female">
+                    
+                    <label for="other">Other</label>
+                    <input type="radio" id="other" name="gender" value="other">
+                </div>
+
+                <div>
+                    <label for="country">Country:</label>
+                    <select id="country" name="country">
+                    <option value="india">India</option>
+                    <option value="uk">UK</option>
+                    <option value="canada">Canada</option>
+                    <option value="usa">USA</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="subscribe">Subscribe to newsletter</label>
+                    <input type="checkbox" id="subscribe" name="subscribe" value="yes">
+                </div>
+
+                <div>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" cols="50"></textarea>
+                </div>
+
+             
+                <button>submit</button>
+             
+             
+                
+               
+            </form>
+        </div>
+    </body>
+</html>

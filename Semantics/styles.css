@@ -1,0 +1,25 @@
+
+header {
+    background-color:black;
+    color: white;
+   
+}
+
+nav ul li{
+    list-style: none;
+}
+
+ul{
+    display: flex;
+}
+
+li{    
+    padding: 10px 20px;
+    color:white;
+}
+
+footer{
+    background-color: blueviolet;
+    padding: 10px;
+    color:wheat;
+}

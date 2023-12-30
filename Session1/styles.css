@@ -1,0 +1,50 @@
+.parentdiv{
+    display:flex;
+}
+
+#div1{
+    
+    background-color: blue;
+    width:500px;
+    height:300px;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
+.div2{
+    background-color: red;
+    width:500px;
+    height:300px;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    
+}
+
+#atag{
+    margin:20px 0;
+    display: inline-block;
+}
+
+#childbox{
+    position: absolute;
+    top:50px;
+}
+
+#parent{
+    position:absolute;
+    height:200px;
+    width:200px;
+    background-color: brown;
+    left:20px;
+}
+
+#childsticky{
+    position: sticky;
+    top:100px;
+    background-color: chocolate;
+}
+
+body{
+    height: 20000px;
+}

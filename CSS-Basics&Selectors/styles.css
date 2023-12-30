@@ -1,0 +1,149 @@
+
+*{
+    color:#1559d0;
+}
+h1{
+    text-align: center;
+    width: 50%;
+    background-color: rgb(19, 173, 187);
+    font-weight:500;
+    font-size:23px;
+}
+
+p{
+    text-align: left;
+    font-weight: bold;
+    text-decoration:blue underline solid;
+    
+}
+
+
+#txt{
+    line-height: 2rem;
+    letter-spacing:2px;
+    color:black;
+}
+
+.btn{
+    margin-top: 15px;
+    padding: 10px;
+    color:white;
+    background-color: purple;
+}
+
+
+li{
+    color:black;
+}
+
+.done{
+    color:purple;
+}
+#clear{
+    background-color: red;
+    color:white;
+}
+/* All a tags under ul -- nested as well*/
+ul a{
+    color:chocolate;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+/* only direct child of ul */
+ul>a{
+    color:blueviolet;
+}
+
+/*only immdediate adjacent tag i.e. immediate p tag after h1 */
+h1 + p {
+    color:darkgoldenrod;
+}
+
+div .para{
+    color:rgb(137, 95, 95);
+    text-decoration: none;
+}
+
+input[type="text"]{
+    color:blueviolet;
+}
+
+input[type="password"]{
+    color:black;
+    background-color: red;
+}
+
+.pseudo a:hover{
+   
+    background-color: red;
+}
+
+.pseudo{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+
+#wo,#check:checked{
+    border:none;
+    outline: 2px solid deeppink;
+}
+
+.pseudo button:active{
+    background-color: aquamarine;
+}
+
+a:visited {
+    color: forestgreen;
+    text-decoration-color: rgb(255, 105, 193);
+  }
+  
+
+  a:link{
+    color:blueviolet;
+  }
+
+  li:first-child{
+    border:2px solid green;
+  }
+
+  li:last-child{
+    border:2px solid salmon;
+  }
+
+  li:nth-child(2n+1){
+    background-color: rgba(15, 15, 108, 0.612);
+  } 
+
+  li:nth-last-child(2n){
+    text-decoration: underline;
+  }
+
+  #name:focus{
+    background-color: black;
+  }
+
+
+  ::selection{
+    color:red;
+    background-color:black ;
+  }
+
+  #pesudo-elements h1::after{
+    content: ' after';
+  }
+  #pesudo-elements h1::before{
+    content: 'before ';
+  }
+
+  #pesudo-elements h1::first-letter {
+    color: #ff0000;
+    font-size: xx-large;
+  }
+  
+  #pesudo-elements h1::first-line {
+    color: #0000ff;
+    font-variant: small-caps;
+  }
