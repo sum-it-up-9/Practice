@@ -74,6 +74,10 @@ input[type="password"]{
     background-color: red;
 }
 
+a[target]{
+  background-color: yellow;
+}
+
 .pseudo a:hover{
    
     background-color: red;
