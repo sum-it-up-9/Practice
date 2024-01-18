@@ -31,10 +31,7 @@ console.log(sentence.slice(11,-7));
 
 console.log(sentence.replace('h','H')); //replaces first occurene only, use regex global for rplacing all occurences
 
-const re = /apples/gi;
-const strss = "Apples are round, and apples are juicy.";
-const newstr = strss.replace(re, "oranges");
-console.log(newstr); // oranges are round, and oranges are juicy.
+
 
 
 console.log(sentence.charAt(-1));//charAt does not work with -ve indexes
@@ -53,13 +50,8 @@ console.log(str1.endsWith('heyllo',2));
 console.log(str1.includes('y'));
 console.log(str1.includes('ey',1));
 
-const num = 42;
-const numToString=num.toString(); // Output: "42"
-console.log(typeof(numToString));
-console.log(typeof(num));
 
-const bool = true;
-console.log(bool.toString()); // Output: "true"
+
 
 
 let b=5;
@@ -78,3 +70,11 @@ console.log(s.indexOf(' '));
 
 
 
+/*
+
+const re = /apples/gi;
+const strss = "Apples are round, and apples are juicy.";
+const newstr = strss.replace(re, "oranges");
+console.log(newstr); // oranges are round, and oranges are juicy.
+
+*/

@@ -1,3 +1,6 @@
+//A shallow copy of an object is a copy whose properties share the same references (point to the same underlying values) as those of 
+//the source object from which the copy was made. As a result, when you change either the source or the copy, you may also cause the other object to change too.
+
 //The term "shallow copy" refers to the process of creating a new object or array and populating it with references to the same elements or values as the original object or array. In the context of the slice() method in JavaScript, when it's used on an array, it creates a shallow copy of a portion of that array.
 
 //In a shallow copy:

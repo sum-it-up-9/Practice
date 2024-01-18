@@ -30,14 +30,14 @@ const qFront=mixedArr.shift(); //shift removes first element from the arr while 
 console.log(qFront);
 console.log(mixedArr);
 
-mixedArr.unshift('insertATFront');
+mixedArr.unshift('insertATFront',12,23);
 console.log(mixedArr);
 
 
 let arr1=[1,2,4];
 let arr2=[5,6,7];
 
-//concat
+//concat -- returns new arr, doesn't modify original array
 console.log(arr1.concat(arr2));
 console.log(arr1.concat(arr2,66,77,88));
 
@@ -53,8 +53,7 @@ console.log(arr1);
 
 
 
-//slice  creates a shallow copy -- A shallow copy of an object is a copy whose properties share the same references (point to the same underlying values) as those of 
-//the source object from which the copy was made. As a result, when you change either the source or the copy, you may also cause the other object to change too.
+//slice  creates a shallow copy -- 
 const arr3=arr1.slice(0,1);
 console.log(arr3);
 
@@ -64,7 +63,6 @@ console.log(temp)
 
 
 //splice updates or deltes or insert elements in arr (in place - original arr)
-
 const arr4=[1,2,3,4,5,6];
 arr4.splice(3,0,44,55);
 console.log(arr4);
@@ -90,6 +88,7 @@ const evarr=[2,4,6];
 let ans=evarr.every((x)=>{ return x%2==0});
 console.log(ans);
 
+let some=temp3.some(x=> x%2==0);
 
 let ans2=evarr.find(x=> x>2);
 console.log(ans2);
@@ -107,7 +106,7 @@ console.log(flatarr.flat())// 1,2,3,[4,5]
 console.log(flatarr.flat(2))//1 2,3,4,5
 
 
-//forEach() always returns undefined and is not chainable.
+//forEach() always returns undefined and is not chainable & it does not modify original array , forEach is used to just perform some logic on arr elements.
 evarr.forEach(x=>console.log(x*2));
 
 let c1=[1,2,3];
