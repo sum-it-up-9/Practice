@@ -85,3 +85,11 @@ function currying(a){
 
 //currying(a)(b)(c)(d);
 currying(2)(3)(4)(5);
+
+
+function gfg(x,y){
+    console.log(x+y);
+}
+
+const bindWithOneArgument=gfg.bind(null,3);
+bindWithOneArgument(4); //prints 3+4 = 7

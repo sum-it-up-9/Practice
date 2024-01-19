@@ -176,18 +176,24 @@ Function.prototype.myBind=function(context={},...args){
         throw new Error('not callable');
     }
 
-    const uniqueKey=Math.random();
-    while(context[uniqueKey] !== undefined){
-        uniqueKey=Math.random();
-    }
-
+    const originalFunction=this;
     //this points to original function
  
-    return function(){
-        this.call(context,...args);
+    return function(...x){
+        return originalFunction.call(context,...args,...x);
     }
 }
 
+checkPass(user.loginSucessful.myBind(user),user.loginFailed.bind(user));
+
+//fn.bind(obj,arg);
+Function.prototype.binddd=function(context={},...arg){
+
+    const originalfn=this;
+    return function(x){
+        originalfn.call(context,...arg,...x);
+    }
+}
 
 /*
 const  getname = (arg1,arg2) =>{

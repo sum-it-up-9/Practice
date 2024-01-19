@@ -342,3 +342,16 @@ var xyx = ()=>{
 }
 abc(1,2,3);
 // xyx(1,2,3);//throws error arguments not defined
+// async/await provides a more readable and synchronous-looking syntax for handling asynchronous code compared to chaining .then() and .catch().
+
+// In summary, promises are a low-level abstraction for handling asynchronous operations, and async/await is a higher-level syntactic sugar built on top of promises to make asynchronous code more readable and easier to work with. You often use async/await when dealing with asynchronous code that returns promises.
+
+
+
+function job(){
+    return new Promise((resolve,reject)=>{
+        ;
+    })
+}
+
+let promiise=job();
