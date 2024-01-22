@@ -108,25 +108,26 @@ Promise.allSettled()
 
 
 const promise1=new Promise( (resolve,reject)=>{
-    setTimeout( ()=> reject('first rejected after 1 sec'),1000);
+    setTimeout( ()=> resolve('first rejected after 1 sec'),1000);
 })
 
 
 const promise2=new Promise((resolve,reject)=>{
     setTimeout(()=>{
-        reject('2nd rejected after 4sec');
+        resolve('2nd rejected after 4sec');
     },4000);
 })
 
 const promise3=new Promise((resolve,reject)=>{
     setTimeout(()=>{
-        reject('3rd rejected after 2 sec')
+        resolve('3rd rejected after 2 sec')
     },2000);
 })
 
-//const allAns=Promise.all([promise1,promise2,promise3]);
+//returns promise object with result as array where each index is a resolved value of each promise, if any one the promise rejects it returns the first failed promise error
+const allAns=Promise.all([promise1,promise2,promise3]);
 
-//console.log('allAns',allAns);
+console.log('allAns',allAns);
 
 
 Promise.all([promise1,promise2,promise3])
@@ -142,17 +143,21 @@ Promise.all([promise1,promise2,promise3])
 // Second Promise's Value
 // Third Promise's Value
 
+//return first setlled promise irrespective of resolved or failed
 Promise.race([promise1,promise2,promise3])
-.then(ans=>console.log(ans))
-.catch(err=>console.error(err));
+.then(ans=>console.log(ans,'from race',))
+.catch(err=>console.error(err,'from race'));
 
+
+//returns first reolved promise -- if all rejects it return aggregate err
 Promise.any([promise1,promise2,promise3])
-.then(ans=>console.log(ans))
+.then(ans=>console.log(ans,'from any'))
 .catch(err=>console.log('err from any: ',err));
 
 
+//It setlles all the promises, unlike promise.all, it completed execution of all the promises even if any 1 gets rejected ...IN result - it returns array of objects and each object has status and value property
 Promise.allSettled([promise1,promise2,promise3])
-.then(ans=>console.log(ans))
+.then(ans=>console.log(ans,'from allSettled')) //arr of obj
 .catch(err=>console.error('err from allSettled: ',err));
 
 
@@ -324,7 +329,7 @@ console.log(pd);
 console.log('3rd')
 
 
-console.log(fn); //fn will be undefined so it gives err saying fn is not a function
+console.log(fn()); //fn will be undefined so it gives err saying fn is not a function
 var fn=()=>{
     console.log('dd');
 }
@@ -355,3 +360,25 @@ function job(){
 }
 
 let promiise=job();
+
+
+
+// script async defer
+
+// In case of <script src=""></script> -browser will parse html and when it sees script tag it will stop the html parsing ,fetch the script and execute it imemeditely and then html parsing will continue
+
+//In case of <script async src=""></script> - broswer will parse html and when it sees script async  it will fetch the script parallely along wiht html parsing and as soon as script is aviablable it will stop the html parsing and execute the script
+
+//Incase of <script defer src=""></script> - browser will parse htmll and when it sees the script defer it wil; fetch is parllely and whenever html parsing is finished then only it will execute the script
+
+/*
+when to use async and defer?
+
+when one script depends on another i.e. order of execution is important use defer bcoz defer make sure all scripts will execute in order as they appaered in document.
+
+and when order of execution is not imp then use async
+
+
+Scripts with the defer attribute will be executed in the order they appear in the document.
+Use async when the script doesn't depend on the order of execution or on other scripts.
+*/

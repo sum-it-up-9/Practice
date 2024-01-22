@@ -136,3 +136,8 @@ for(let num of c1){
     console.log(num);
 }
 
+
+let dummy=[1,2,3,4,5];
+dummy.fill(0)// [0,0,0,0,0]
+dummy.fill(0,1)//numberToFillWith start end
+dummy.filll(0,1,3);

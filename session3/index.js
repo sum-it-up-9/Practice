@@ -133,3 +133,10 @@ function testing(){
 }
 
 testing();
+
+
+// new Promise((resolve,reject)=>{
+//     reject('err');
+// })
+
+// console.log(2);

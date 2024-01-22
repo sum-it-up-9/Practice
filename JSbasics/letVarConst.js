@@ -165,3 +165,68 @@ function testing(){
 }
 
 testing();
+
+
+//arguments is a object and not present in arrow function
+//arguments is an array-like object accessible inside functions that contains the values of the arguments passed to that function.
+function xyz(a,b){
+    arguments[0] = 99; // updating arguments[0] also updates a
+    console.log(arguments); // { '0': 99, '1': 2 }
+}
+xyz(1,2)
+
+
+//check diff between arrow and normal function : this keyword, arguments, implicit return 
+
+
+
+/*
+//Imp
+add() //it will print 3
+function add(){
+    console.log(1);
+}
+
+var add;
+
+function add(){
+    console.log(3);
+}
+*/
+
+
+/* 
+add() //it will print 3
+function add(){
+    console.log(1);
+}
+
+var add=function(){
+    console.log(2);
+};
+
+function add(){
+    console.log(3);
+}
+
+add(); //it will print 2
+*/
+
+
+//VIMP
+/* 
+add() 
+function add(){
+    console.log(1);
+}
+
+const add=function(){ //throws error since add is already declared and in case of const and let we cannot declare the same variable name
+    console.log(2);
+};
+
+function add(){
+    console.log(3);
+}
+
+add(); 
+*/
