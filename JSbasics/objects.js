@@ -34,9 +34,9 @@ for(let key in obj){
     console.log(`key ${key} and value ${obj[key]}`);
 }
 
-console.log(Object.keys(obj));
-console.log(Object.values(obj));
-console.log(Object.entries(obj));
+console.log(Object.keys(obj),'keys');
+console.log(Object.values(obj),'values');
+console.log(Object.entries(obj),'entries');
 
 Object.entries(obj).forEach(item=>console.log(`key: ${item[0]} and value:${item[1]}`));
 
@@ -103,7 +103,7 @@ const sameName={
 console.log(sameName); // {a:200,b:200}
 
 //we can declare obj as a key using [] sq bracket but 
-//check on conosle.log it just gives as "object object" as key
+//check on console.log it just gives as "object object" as key
 const obj1={
     [{}]:'c', // [object object]:'c' //this is how it stores
 };
@@ -125,3 +125,106 @@ console.log(string);
 
 //This method parses a JSON string and returns a JavaScript object or value.
 console.log(JSON.parse(string));
+
+const sett={
+    name:'abc',
+    age:18,
+    job:'Business',
+
+}
+let jsonString=JSON.stringify(sett,["name","age"]);//only stringyfies name and age 
+console.log(jsonString);
+localStorage.setItem('jsonString',jsonString);//key value pair
+console.log(localStorage.getItem('jsonString'));//getItem by Key
+
+//Object destructuring
+let user={
+    name:'prac de',
+    age:'32',
+    fullName:{
+        fname:'zareen',
+        lname:'karoke',
+    }
+};
+/* error
+var name;
+const {name}=user; cant user same name (syntaxError)
+*/
+
+//if hello key not present assign deafult value of 23 to it & age has been renamed to renamedAge
+const {name,hello=23,age:renamedAge}=user;
+console.log(hello);
+console.log(renamedAge);
+
+
+//how to destructure nested objects
+const {fullName:{fname,lname}}=user;
+
+//console.log(fullName); not defined error
+console.log(fname);
+console.log(lname);
+
+//error - rest operator should be used at last
+// function getItems(param1,...args,param2){
+
+// }
+
+
+// getItems(["ban",'dan'],'san','man');
+
+
+function getItems(param1,...rest){
+    //rest combines all into arr
+    console.log(rest);
+}
+
+getItems(1,2,3,4,5,6);
+
+
+console.log({a:1}==={a:1}); //false
+//primitive pass by value;
+let abc=10;
+let xy=abc;
+abc=15;
+console.log(xy) //10
+
+//when we check if two arrays or objects are equal we are checking their reference & not values
+
+const obj12={name:'zareen'}; //strutural data types pass by refernces
+const newob=obj12;
+
+obj12[name]='kriti';
+console.log(obj12); //same reference
+
+
+let khar={
+    name:'kriti',
+    lanme:'kharbanda'
+};
+
+const newarr=[khar];
+//khar=null; //reassignment so wont affect in newarr
+console.log(newarr); 
+
+khar.name='50L'; //now we modifying so it will affect newarr
+console.log(newarr);
+
+
+
+function ref(p){
+    p.age=23;
+    p={ //reassigning so wont affect p1
+        name:'jc',
+        age:50,
+    };
+    return p;
+}
+
+const p1={
+    name:'a',
+    age:30
+}
+
+const pobj2=ref(p1); //function structural type so pass by refernce
+ console.log(p1);// {name:'a',age:23};
+ console.log(pobj2); //{name:'jc',age:50}

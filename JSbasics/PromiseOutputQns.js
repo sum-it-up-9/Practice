@@ -94,3 +94,35 @@ fn().then(res=>console.log(res))
 
 console.log(end);
 // first middle 1 end succeeded
+
+
+const asyncfn=()=>{
+    return new Promise((resolve,reject)=>{
+        console.log(1);
+        resolve('ss');
+        console.log(2);
+    })
+}
+//this is asycnfn().then so we are calling this fucntion thats why 1 & 2 will be printed;
+asyncfn().then(()=>console.log('then'));
+console.log('p end');
+
+//it will print -- 1 2 p end then
+
+
+const fnn=()=>{
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            alert("from setTimout");
+            resolve('resolved');
+            console.log(1111);
+        },1000);
+    })
+}
+
+fnn().then((data)=>{
+    console.log("wait for promise to resolve");
+    console.log(data);
+})
+
+console.log('p end');

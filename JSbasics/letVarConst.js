@@ -176,9 +176,12 @@ function xyz(a,b){
 xyz(1,2)
 
 
-//check diff between arrow and normal function : this keyword, arguments, implicit return 
+//check diff between arrow and normal function : this keyword, arguments, implicit return and we cannot use arrow function as a constructor (using new keyword)
 
+//check css specificity
+//what happens when you hit url in browser
 
+//diff between map and foreach
 
 /*
 //Imp
@@ -230,3 +233,4 @@ function add(){
 
 add(); 
 */
+

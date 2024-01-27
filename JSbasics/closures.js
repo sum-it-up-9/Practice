@@ -99,6 +99,31 @@ ans();
 
 
 
+
+
+function counter(){
+    var count=0;
+    this.increment=function(){
+        count++;
+        console.log(count);
+    }
+
+    this.decremnet=function(){
+        count--;
+        console.log(count);
+    }
+}
+
+var counter1=new counter();
+console.log(counter1,'c1');
+
+
+
+
+
+
+
+
 //polyfill for map
 
 //arr.map((x,idx,this)=>{})
