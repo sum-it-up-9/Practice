@@ -1,0 +1,15 @@
+.container{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-bar{
+    background-color: #1fac0f;
+    height: 30px;
+}
+
+span{
+   position: absolute;
+}

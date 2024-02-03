@@ -61,32 +61,3 @@ const searchedvalue=arr.filter(item=> item.name.toLowerCase().includes(searchTer
 <input type="text" value="" onChange={((e)=>setSearchTerm(e.target.value))}>
 
 */
-
-//ViMP
-const fnn=()=>{
-    return new Promise((resolve,reject)=>{
-        setTimeout(()=>{
-            alert("from setTimout");
-            resolve('resolved');
-            console.log(1111);
-        },1000);
-    })
-}
-
-fnn().then((data)=>{
-    console.log("wait for promise to resolve");
-    console.log(data);
-})
-
-console.log('p end');
-
-// output--
-// p end 
-// from setTimout
-// 1111
-// wait for promise to resolve
-// resolved
-
-//first fnn() will execute, it is returning promise obj and inside that there is a setimout so it will push callback function into task queue
-//after that 'p end' will excute and then call back function will come into call satck after 1 sec, it will execute alert and then rejester promise in job queue i.e. resolve and then prints 1111
-//now when promise is resolved it will come into call satck and execute .then handler

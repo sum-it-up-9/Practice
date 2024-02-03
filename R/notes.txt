@@ -1,0 +1,71 @@
+1. What are functional components in React?
+Functional components are just javascript functions, which contains some logic to perform certain actions. These components accept 
+the data as props and return the React element which is nothing HTML content. With introduction to the React 16, 
+writing functional components is the standard way of creating components in modern react applications.
+
+2. Are functional components better React?
+Yes functional components are better in React, with the introduction to the React hooks, we can do so much of things in 
+functional components, even we can use lifecycle methods inside the functional component. We can even create functional
+ components using ES6 arrow functions.
+
+3. Why use functional components React?
+Using the react functional components, one can easily understand the code. It has several advantages, first of all,
+ functional components are just simple javascript functions that accept the information in the form of prop and return
+  the react element, which is HTML content. There is no need to use the render() method inside functional components.
+
+
+4. What are the functional component and class component in React?
+Functional component is just a simple javascript function; it accepts the data in the form of props and returns the react element.
+ Whereas the class component will be created using the class keyword, and it extends the React
+ Component to make the class as a react component.
+
+
+5.what are props?
+Immutable:
+Props are immutable, meaning that a child component cannot modify the props it receives from its parent. They are read-only.
+
+In React, "props" is short for "properties," and it refers to the inputs that are passed into a React component. 
+Props are used to pass data from a parent component to a child component. 
+They are one of the fundamental concepts in React and play a crucial role in building dynamic and reusable components.
+
+
+6.what are hooks?
+allows to use react features like state & other react features inside functional component
+
+
+7.Yes, the setState function in React's useState hook is asynchronous. When you call setState, React schedules an update, and the state change might not be applied immediately. This is done for performance reasons, and React may batch multiple state updates together to optimize rendering.
+
+
+8.useRef is a React Hook that provides a way to persist values across renders without causing re-renders when the value changes. It is often used to obtain references to DOM elements, manage mutable values, or store any value that doesn't trigger a re-render when it changes.
+useref return a object whihc has current property & current property holds the reference to any dom element or any value .
+
+9.  /*
+  this will run only once after initial render
+  useEffect(()=>{
+    console.log('inside useEffect');
+  },[]);
+  */
+
+  /*
+  this will run at every render
+  useEffect(()=>{
+    console.log('inside useEffect');
+  });
+  */
+
+    /*
+  this will run at first and after everytime count values changes it will excute
+  useEffect(()=>{
+    console.log('inside useEffect');
+  },[count]);
+  */
+
+  10.The React useMemo Hook returns a memoized value.
+
+Think of memoization as caching a value so that it does not need to be recalculated.
+
+The useMemo Hook only runs when one of its dependencies update.
+
+This can improve performance.
+
+The useMemo and useCallback Hooks are similar. The main difference is that useMemo returns a memoized value and useCallback returns a memoized function.

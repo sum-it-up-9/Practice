@@ -53,6 +53,9 @@ console.log(Tommy);
 console.log(Tommy.greet());
 
 
+//The super keyword is used to call the constructor of its parent class to access the parent's properties and methods.
+// super(arguments);  // calls the parent constructor (only inside the constructor)
+// super.parentMethod(arguments);  // calls a parent method
 //extend
 class Labra extends Dog{
     constructor(name,age,breed){

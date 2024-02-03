@@ -171,3 +171,5 @@ Array.prototype.myReduce=function(cb,initialValue){
 
 console.log(scores.myReduce((acc,x)=>x+acc));
 console.log(scores.reduce((acc,x)=>x+acc));
+
+

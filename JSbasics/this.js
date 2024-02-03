@@ -1,123 +1,123 @@
 
 
-// function randomFn(){
-//     return {
-//         name:"jhon",
-//         ref:this,
-//     }
-// }
+function randomFn(){
+    return {
+        name:"jhon",
+        ref:this,
+    }
+}
 
-// let zar=randomFn();
-// console.log(zar.ref); //window
+let zar=randomFn();
+console.log(zar.ref); //window
 
-// function makeThisPointToObj(){
-//     return{
-//         name:"jhon",
-//         ref(){
-//             console.log(this);
-//         }
-//     }
-// }
+function makeThisPointToObj(){
+    return{
+        name:"jhon",
+        ref(){
+            console.log(this);
+        }
+    }
+}
 
-// let kri=makeThisPointToObj();
-// console.log(kri.ref()); //points to object
-
-
-
-// const anotherobj={
-//     name:'zare',
-//     msg(){
-//         console.log(this.name,'from here')
-//     }
-// }
-
-// setTimeout(anotherobj.msg,1000) //it will point to window and window.name is undefined
-// //how to fixe wrap it into callback
-
-// setTimeout(()=>{
-//     anotherobj.msg();
-// },1000)
-
-
-// console.log(this);
-
-
-// const cal={
-//     read(){
-//         this.a=parseInt(prompt('enter first number',0));
-//         this.b=parseInt(prompt('enter second number',0));
-//     },
-//     sum(){
-//         return this.a+this.b;
-//     },
-//     multipy(){
-//         return this.a*this.b;
-//     }
-// }
-
-// // cal.read();
-// // console.log(cal.sum());
-// // console.log(cal.multipy());
-
-
-// var lname='zareen';
-// function printNanme(){
-//     console.log(this.lname,'from window');
-// }
-
-// const object={
-//     lanme:'kriti',
-//     method(fn){
-//         fn();
-//     }
-// }
-
-// object.method(printNanme); //prints zareen
-
-// var length=10;
-// function printNanme2(){
-//     console.log(this.length,'from window');
-// }
-// const objectModified={
-//     lanme:'kriti',
-//     method(){
-//         console.log(arguments[0]()); //argument is an object where 0,1,2 and o on are keys and parameters are values, so printName function will be present at 0th key that means it will point to arguments object and argumnets object has length key 
-//     }
-// }
-
-
-// objectModified.method(printNanme2,1,2); 
+let kri=makeThisPointToObj();
+console.log(kri.ref()); //points to object
 
 
 
+const anotherobj={
+    name:'zare',
+    msg(){
+        console.log(this.name,'from here')
+    }
+}
 
-// //implement calc;
-// const calc={
-//     total:0,
-//     add(a){
-//         this.total+=a;
-//         return this;//points to user
-//     },
-//     multipy(b){
-//         this.total*=b;
-//         return this;
-//     },
-//     sub(a){
-//         this.total -=a;
-//         return this;
-//     }
+setTimeout(anotherobj.msg,1000) //it will point to window and window.name is undefined
+//how to fixe wrap it into callback
 
-// }
+setTimeout(()=>{
+    anotherobj.msg();
+},1000)
 
-// const res=calc.add(10).multipy(5).sub(30).add(10);
-// console.log(res.total);
 
-// function sum(){
-//     console.log(this);
-// }
+console.log(this);
 
-// //window.sum()
-// sum();
+
+const cal={
+    read(){
+        this.a=parseInt(prompt('enter first number',0));
+        this.b=parseInt(prompt('enter second number',0));
+    },
+    sum(){
+        return this.a+this.b;
+    },
+    multipy(){
+        return this.a*this.b;
+    }
+}
+
+// cal.read();
+// console.log(cal.sum());
+// console.log(cal.multipy());
+
+
+var lname='zareen';
+function printNanme(){
+    console.log(this.lname,'from window');
+}
+
+const object={
+    lanme:'kriti',
+    method(fn){
+        fn();
+    }
+}
+
+object.method(printNanme); //prints zareen
+
+var length=10;
+function printNanme2(){
+    console.log(this.length,'from window');
+}
+const objectModified={
+    lanme:'kriti',
+    method(){
+        console.log(arguments[0]()); //argument is an object where 0,1,2 and o on are keys and parameters are values, so printName function will be present at 0th key that means it will point to arguments object and argumnets object has length key 
+    }
+}
+
+
+objectModified.method(printNanme2,1,2); 
+
+
+
+
+//implement calc;
+const calc={
+    total:0,
+    add(a){
+        this.total+=a;
+        return this;//points to user
+    },
+    multipy(b){
+        this.total*=b;
+        return this;
+    },
+    sub(a){
+        this.total -=a;
+        return this;
+    }
+
+}
+
+const res=calc.add(10).multipy(5).sub(30).add(10);
+console.log(res.total);
+
+function sum(){
+    console.log(this);
+}
+
+//window.sum()
+sum();
 
 /*
 const person={

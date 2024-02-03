@@ -1,5 +1,6 @@
 
 
+
 const promise=Promise.resolve('sucess');
 console.log(promise);
 console.log(Promise.reject('failure').catch(function(error){
@@ -362,6 +363,33 @@ function job(){
 let promiise=job();
 
 
+//ans - a b middle rejecting
+const ab=new Promise((resolve,reject)=>{
+    console.log('a');
+    reject('rejecting');
+    console.log('b');
+})
+console.log('midddle');
+
+ab.then(res=>console.log(res,'hey')).catch((e)=>{console.log(e)})
+
+
+
+//throw new Error('j'); throw will stop execution of program
+// const err=new Error('hey err');//this will just return Object od Error class and wont stop execution
+// console.log( err);
+
+
+
+//Imp
+const a=new Promise((resolve,reject)=>{
+    console.log('a');
+})
+
+//we are not resolving anything in promise so it wont excute .then handler 
+a.then(res=>console.log(res,'hey'))
+//
+
 
 // script async defer
 
@@ -382,3 +410,36 @@ and when order of execution is not imp then use async
 Scripts with the defer attribute will be executed in the order they appear in the document.
 Use async when the script doesn't depend on the order of execution or on other scripts.
 */
+
+
+
+//polyfill for all;
+Promise.prototype.myall=function(arrOfAllPromises){
+    return new Promise((resolve,reject)=>{
+    let result=[];
+    let count=0;
+    for(let promise of arrOfAllPromises){
+        Promise.resolve(promise).then((res)=>{
+            result.push(res);
+            count++;
+            if(count===arrOfAllPromises.length){
+                resolve(result);
+            }
+        }).catch((error)=>{
+            reject(error);
+        })          
+    }
+   
+})};
+
+
+function like(){
+    return Promise.resolve('like');
+}
+
+function comment(){
+    return Promise.resolve('comment');
+}
+
+console.log(Promise.myall[like,comment,10]);
+console.log(Promise.all[like,comment,10])

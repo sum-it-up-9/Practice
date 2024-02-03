@@ -93,9 +93,67 @@
            src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Partridge_Silkie_hen.jpg/900px-Partridge_Silkie_hen.jpg"
            alt="">
    
-       <input type="text">
+       <div><input type="text"></div>
+       <h1>Events</h1>
+       <div style="margin-top: 30px;">
+            <label for="input">TextBOX</label>
+            <input id="input" type="text">
+        </div>
 
+       <div>
+        <button id="btn3">btn 3</button>
+       </div>
+       <div>
+        <button id="btn4">BTN-4 Click</button>
+       </div>
+       <div>
+        <button id="btn5">BTN-5 Click</button>
+       </div>
+       <button id="btn">btn 1</button>
+       <button id="btn2">btn 2</button>
 
+       <form action="">
+        <h1>Form:</h1>
+        fname<input type="text" name="fname" id="">
+        lanme<input type="text" name="lname">
+        <button>submit</button>
+       </form>
+        <ul id="formlist">
+            
+        </ul>
+
+        <div>
+            <label for="onchnageCheck">Onchange</label>
+            <input type="text" name="onchnageCheck" id="onchnageCheck">
+        </div>
+
+        <div>
+           inputEvent <input type="text" id="inputEvent">
+        </div>
+
+        <form id="form2"  action="" style="margin-top: 30px; border-top: 2px solid blue;">
+            fname<input type="text" name="fname" id="">
+            lanme<input type="text" name="lname">
+            <button>Submit</button>
+        </form>
+        <ul id="eventDelegation">
+            <li>hey</li>
+        </ul>
+
+        <div  onclick="alert('div tag clicked')" style="border:1px solid red">
+            <p onclick="alert('p tag clicked')" style="border:1px solid black">
+                Hey im paraent tag
+                <button onclick="alert('button clicked'); ">submit</button>
+            </p>
+        </div>
+
+        <!--Event Bubbling is a concept in the DOM (Document Object Model). It happens when an element receives an event, and that event bubbles up (or you can say is transmitted or propagated) to its parent and ancestor elements in the DOM tree until it gets to the root element.
+
+This is the default behavior of events on elements unless you stop the propagation-->>
+        <div id="abc" class="" onclick="toggleClass()" style="border:2px solid blue">
+            This a div tag text
+            <button id="eventBubbling">submit</button>
+        </div>
 
        <script src="dom.js"></script>
     </body>

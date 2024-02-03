@@ -62,6 +62,47 @@
 
 //objects, this, call, bind, apply , closures
 
+function merge(left,right){
+    let res=[];
+    let leftIndex=0;
+    let rightIndex=0;
+    while(leftIndex<left.length &&  rightIndex<right.length){
+        if(left[leftIndex] < right[rightIndex]){
+            res.push(left[leftIndex]);
+            leftIndex++;
+        }
+        else{
+            res.push(right[rightIndex]);
+            rightIndex++;
+        }
+    }
+
+    return res.concat(left.slice(leftIndex),right.slice(rightIndex));
+}
+
+
+function mergeSort(arr){
+
+    if(arr.length <=1) return arr;
+
+    let middle=Math.floor(arr.length/2);
+    let sortedLeft=mergeSort(arr.slice(0,middle));
+    let sortedRight=mergeSort(arr.slice(middle));
+
+    return merge(sortedLeft,sortedRight);
+}
+
+const arr=[5, 2, 9, 1, 5, 6];
+console.log(mergeSort(arr));
+
+
+
+
+
+
+
+
+
 
 function foo(){
     return {

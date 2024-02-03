@@ -185,3 +185,176 @@ const newText=document.createElement('h3');
 newText.append('appending some random text');
 silkie.after(newText);
 silkie.before(newText);
+
+
+
+
+//events - repsonds to user input/actions like click, hover, keypress
+const btn=document.querySelector('#btn');
+btn.onclick = function(){
+    console.log('btn got clicked');
+}
+
+btn.onmouseenter=function(){
+    console.log('mouse entered')
+}
+
+btn.onmouseleave=function(){
+    console.log('mouse left')
+}
+
+//this will just execute alert when the page gets loaded but it wont attach function to onlick
+//document.querySelector('#btn2').onclick=alert('clicked');
+
+const btn3=document.querySelector('#btn3');
+btn3.addEventListener('click',function(){
+    console.log('btn 3 is clicked')
+});
+
+btn3.addEventListener('mouseup',()=>{
+    console.log(' Occurs when the mouse button is released over an element.')
+})
+
+// Define the event handler function
+var mouseDownHandler = () => {
+    console.log('Occurs when the mouse button is pressed over an element.');
+};
+
+// Add the event listener
+btn3.addEventListener('mousedown', mouseDownHandler);
+
+
+function call(){
+    console.log('cc');
+}
+
+function shout(){
+    console.log('sht');
+}
+
+const btn4=document.querySelector('#btn4');
+btn4.onclick=call; 
+btn4.onclick=shout;//since onlclick is an property it will overwrite the funciton attached to it, so only one function will be attached to it, we cant apply more thatn one fucntion byt with addEventListener we can attach more than 1 function
+
+
+const btn5=document.querySelector('#btn5');
+btn5.addEventListener('click',call,{once:true});
+btn5.addEventListener('click',shout);
+
+
+btn3.removeEventListener('mousedown',mouseDownHandler);
+
+//document.body.style.backgroundColor='blue'
+//document.body -short
+
+const inpt=document.querySelector('#input');
+inpt.addEventListener('keydown',function(e){
+    console.log(e.code,'code'); //it is code based on location of keys on keyboard it will same in all ketboards as based on language keys might be different on differnt laptops
+    console.log(e.key,'key') 
+    console.log(e);//
+});
+
+// inpt.addEventListener('keyup',function(){
+//     console.log('keyup')
+// });
+
+
+
+
+// In JavaScript, when an event occurs (e.g., a click, keypress, or mouse movement), an Event object is automatically created and passed as an argument to the event handler function. This object provides information about the event and allows you to interact with it. The event object contains various properties and methods that you can use to get details about the event, such as the type of the event, the target element, mouse coordinates, key codes, etc.
+
+// Here's a brief overview of some common properties of the Event object:
+
+// type: A string indicating the type of the event (e.g., "click", "keydown").
+
+// target: The DOM element that triggered the event.
+
+// currentTarget: The DOM element to which the event handler is attached.
+
+// keyCode or key: For keyboard events, these properties provide information about the pressed key.
+
+// clientX and clientY: For mouse events, these properties give the coordinates of the mouse pointer in the browser window.
+
+// preventDefault(): A method that, when called, prevents the default action associated with the event from taking place (e.g., preventing a form from being submitted).
+
+// Here's an example of using the event object in a click event:
+
+
+
+
+//deafault behaviour of form is , When a user submits a form by clicking a submit button (or pressing Enter in a text field), the form will navigate to the url provided in action attribute and if no url mentioned then it will refrresh the page
+//thats why we use e.preventDefault() to stop this refresh/navigation
+const ul=document.querySelector('#formlist');
+const form=document.querySelector('form');
+form.addEventListener('submit',function(e){
+    e.preventDefault();
+    console.dir(form);
+    // console.log(e);
+    let fname=form.elements.fname.value;
+    let lname=form.elements.lname.value;
+    const li=document.createElement('li');
+    li.innerText=fname+lname;
+    ul.append(li);
+    form.elements.fname.value='';
+    form.elements.lname.value='';
+})
+
+// The onchange event is a JavaScript event that is triggered when the value of an input element, such as <input>, <select>, <textarea>, or other form elements, is changed by the user. It is a part of the DOM (Document Object Model) and allows developers to execute custom JavaScript code or functions in response to user interactions.
+
+// Here are key aspects and details about the onchange event:
+
+// Triggering Conditions:
+
+// For <input> elements, the onchange event typically occurs when the user modifies the content of the input field and moves the focus out of it (e.g., by pressing the Tab key or clicking outside the input).
+// For <select> elements, the event is triggered when the user selects a different option from the dropdown list.
+// For <textarea> elements, it is triggered when the user modifies the content and moves the focus out of the textarea.
+const inputCheckOnchnage=document.querySelector('#onchnageCheck');
+inputCheckOnchnage.addEventListener('change',function(e){
+    console.log('changed');
+    console.log(e.target.value);
+})
+
+// input:
+
+// The input event is triggered as soon as the value of an <input>, <select>, or <textarea> element changes, unlike onchange, which typically triggers when the element loses focus.
+
+
+const  inputEvent=document.querySelector('#inputEvent');
+inputEvent.addEventListener('input',function(e){
+    console.log('input event occured');
+    console.log(e.target.value);
+})
+
+const eventDelegation=document.querySelector('#eventDelegation');
+const form2=document.querySelector('#form2');
+form2.addEventListener('submit',function(e){
+    e.preventDefault();
+    const value1=form2.elements.fname.value;
+    const value2=form2.elements.lname.value;
+    let li=document.createElement('li');
+    li.innerText=value1+value2;
+    eventDelegation.append(li);
+})
+
+// Event delegation is a programming technique in JavaScript where you attach a single event listener to a common ancestor of multiple elements, instead of attaching individual event listeners to each specific element. 
+const UleventDelegation=document.querySelector('#eventDelegation');
+UleventDelegation.addEventListener('click',function(e){
+    //console.log(e.target.nodeName); LI
+    if(e.target.nodeName==='LI'){
+        e.target.remove();
+    }
+});
+
+
+const eventBubblingBtn=document.querySelector('#eventBubbling');
+eventBubblingBtn.addEventListener('click',function(e){
+    alert('eventBubbling btn clicked');
+    e.stopPropagation();
+})
+
+function toggleClass() {
+    // Your function logic goes here
+   
+    document.querySelector('#abc').classList.toggle('hide');
+    console.log("Toggle class function executed.");
+}
