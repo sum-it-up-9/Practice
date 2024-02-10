@@ -1,3 +1,8 @@
+// var a; //undefined
+// if(a){
+//     console.log(a); //so wont print
+// }
+
 /*
 console.log(a);
 var a;

@@ -312,6 +312,7 @@ function getdata(){
 }
 
 async function getDataUsingasync(){
+    //js engine will wait here i.e. it will throw this function  out of call stack
     const data=await p;
     console.log(data);
 
@@ -418,9 +419,9 @@ Promise.prototype.myall=function(arrOfAllPromises){
     return new Promise((resolve,reject)=>{
     let result=[];
     let count=0;
-    for(let promise of arrOfAllPromises){
+    for(let i=0;i<arrOfAllPromises.length;i++){
         Promise.resolve(promise).then((res)=>{
-            result.push(res);
+            result[i]=res;
             count++;
             if(count===arrOfAllPromises.length){
                 resolve(result);
@@ -443,3 +444,12 @@ function comment(){
 
 console.log(Promise.myall[like,comment,10]);
 console.log(Promise.all[like,comment,10])
+
+//runs it
+const abv=new Promise((resolve,reject)=>{
+    console.log('2');
+    resolve(222);
+  })
+  
+
+

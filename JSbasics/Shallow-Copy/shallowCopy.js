@@ -50,7 +50,7 @@ let x=2;
 let y=x;
 y+=1;
 console.log(x); x=2
-console.loy(y); y=2
+console.loy(y); y=3
 
 
 Structural data types use references

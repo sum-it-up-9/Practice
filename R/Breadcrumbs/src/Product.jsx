@@ -36,6 +36,8 @@ const Product=()=>{
                    
                 ) :(<div>Loading...</div>)
             }
+
+           
         </>
     )
 }

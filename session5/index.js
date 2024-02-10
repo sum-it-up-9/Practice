@@ -1,3 +1,8 @@
+const abv=new Promise((resolve,reject)=>{
+  console.log('2');
+  resolve(222);
+})
+console.log(typeof abv);
 //throw new Error('j'); throw will stop execution of program
 // const err=new Error('hey err');//this will just return Object od Error class and wont stop execution
 // console.log( err);
@@ -221,28 +226,28 @@
 
 
 
-// function get(obj,path,defaultvalue){
-//     path= Array.isArray(path) ? path.join('.') : path ;
+function get(obj,path,defaultvalue){
+    path= Array.isArray(path) ? path.join('.') : path ;    //c[0].b.c   -- c 0 b c
 
-//     let keys=[];
-//     for(let key of path){
-//         if(key!=='.' && key!=='[' && key!==']'){
-//             keys.push(key);
-//         }
-//     }
+    let keys=[];
+    for(let key of path){
+        if(key!=='.' && key!=='[' && key!==']'){
+            keys.push(key);
+        }
+    }
 
-//     let result=obj;
-//     for(let key of keys){
-//         if(result && typeof result==='object'  && result[key]){
-//             result=result[key];
-//         }
-//         else{
-//             return defaultvalue;
-//         }
-//     } 
+    let result=obj;
+    for(let key of keys){
+        if(result && typeof result==='object'  && key in result){
+            result=result[key];
+        }
+        else{
+            return defaultvalue;
+        }
+    } 
    
-//     return result;
-// }
+    return result;
+}
 
 
 // const obj = {
@@ -262,102 +267,109 @@
 
 
 //   //nlogn
-//   function twoSum(arr,target){
+   Array.prototype.twoSum=function(target){
+    let arr=this;
+    if(arr.length <= 1)return null;
 
-//     if(arr.length <= 1)return null;
+    const nums=arr.map((num,index)=> [num,index]);
+    nums.sort((a,b)=> a[0]-b[0]);
 
-//     const nums=arr.map((num,index)=> [num,index]);
-//     nums.sort((a,b)=> a[0]-b[0]);
+    let fIndex=0;
+    let lIndex=arr.length-1;
 
-//     let fIndex=0;
-//     let lIndex=arr.length-1;
-
-//     while(fIndex<lIndex){
-//         if(nums[fIndex][0] + nums[lIndex][0] < target){
-//             fIndex++;
-//         }
-//         else if(nums[fIndex][0] + nums[lIndex][0] > target){
-//             lIndex--;
-//         }
-//         else{
-//             return [nums[fIndex][1],nums[lIndex][1]];
-//         }
-//     }
-
-//     return [];
-
-//   } 
-
-//   //two pass solution - O(n)
-//   function twoSum2(arr,target){
-//     const obj={};
-
-//     for(let i=0;i<arr.length;i++){
-//         obj[arr[i]]=i;
-//     }
-
-//     for(let i=0;i<arr.length;i++){
-//         if(obj[target-arr[i]] && obj[target-arr[i]]!==i){
-//             return [obj[target-arr[i]],i];
-//         }
-//     }
-//     return [];
-//   }
-
-
-//   //once
-//   function once(cb){
-//     let called=false;
-//     let lans=undefined;
-
-//     return function(){
-//         if(!called){
-//             called=true;
-//             lans=cb.call(this,...arguments);
-//             return lans;
-//         }
-//         return lans;
-//     }
-//   }
-
-//   function print(a,b,c,d){
-//     console.log(this.name);
-//     return a+b+c+d;
-//   }
-
-
-//     const fn=once(print);
-//     // console.log(fn(1,2,3,4));
-//     // console.log(fn(1,12,3,5));  
-
-//   const ans= fn.call({name:'myname'},1,2,3,4);
-//   console.log(ans);
-
-
-  function isEqual(obj1,obj2){
-    if(typeof obj1!=='object' || typeof obj2!=='object' )  return obj1===obj2;
-    
-    let keys1=Object.keys(obj1);
-    let keys2=Object.keys(obj2);
-
-    if(keys1.length !== keys2.length) return false;
-
-    for(let key of keys1){
-        //if(obj2.hasOwnProperty(key))
-        if(!key in obj2) return false;
-        let value2=obj2[key];
-        let value1=obj1[key];
-
-        if(!isEqual(value1,value2)) return false;
+    while(fIndex<lIndex){
+        if(nums[fIndex][0] + nums[lIndex][0] < target){
+            fIndex++;
+        }
+        else if(nums[fIndex][0] + nums[lIndex][0] > target){
+            lIndex--;
+        }
+        else{
+            return [nums[fIndex][1],nums[lIndex][1]];
+        }
     }
 
-    return true;
+    return [];
+
+  } 
+
+  //two pass solution - O(n)
+  function twoSum2(arr,target){
+    const obj={};
+
+    for(let i=0;i<arr.length;i++){
+        obj[arr[i]]=i;
+    }
+
+    for(let i=0;i<arr.length;i++){
+        if(obj[target-arr[i]] && obj[target-arr[i]]!==i){
+            return [obj[target-arr[i]],i];
+        }
+    }
+    return [];
   }
 
-  const obj1={a:1,b:2,c:{z:5},d:[]};
-  const b={a:1,b:2,c:{z:5},d:[]};
+
+  //once
+  function once(cb){
+    let called=false;
+    let lans=undefined;
+
+    return function(){
+        if(!called){
+            called=true;
+            lans=cb.call(this,...arguments);
+            return lans;
+        }
+        return lans;
+    }
+  }
+
+  function print(a,b,c,d){
+    console.log(this.name);
+    return a+b+c+d;
+  }
 
 
-  console.log(isEqual(obj1,b));
+    const fn=once(print);
+    // console.log(fn(1,2,3,4));
+    // console.log(fn(1,12,3,5));  
+
+  const ans= fn.call({name:'myname'},1,2,3,4);
+  console.log(ans);
+
+
+
+
+
+
+
+
+
+  // function isEqual(obj1,obj2){
+  //   if(typeof obj1!=='object' || typeof obj2!=='object' )  return obj1===obj2;
+    
+  //   let keys1=Object.keys(obj1);
+  //   let keys2=Object.keys(obj2);
+
+  //   if(keys1.length !== keys2.length) return false;
+
+  //   for(let key of keys1){
+  //       //if(obj2.hasOwnProperty(key))
+  //       if(!key in obj2) return false;
+  //       let value2=obj2[key];
+  //       let value1=obj1[key];
+
+  //       if(!isEqual(value1,value2)) return false;
+  //   }
+
+  //   return true;
+  // }
+
+  // const obj1={a:1,b:2,c:{z:5},d:[]};
+  // const b={a:1,b:2,c:{z:5},d:[]};
+
+
+  // console.log(isEqual(obj1,b));
 
 

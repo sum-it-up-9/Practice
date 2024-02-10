@@ -1,0 +1,9 @@
+div{
+    color:red;
+}
+
+div{
+    color:blue;
+}
+/* sepecificity means which selector is more specific i.e. browser decides which rules to apply when there is conflict*/
+/* since specificity is same of the element so latest defined rule will be applied to div which is blue */

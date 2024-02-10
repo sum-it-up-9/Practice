@@ -1,3 +1,9 @@
+const pare2=document.querySelector('#child');
+console.log(pare2.previousSibling,'pare2');
+
+console.log(pare2.previousElementSibling);
+console.log(pare2.nextElementSibling);
+
 //DOm is an object which contains representations of all the content on a page (html content in form of tree where it converts each tag inot js object)
 // plus it provides tons of useful methods and proerties like event listeners and all
 
@@ -188,6 +194,22 @@ silkie.before(newText);
 
 
 
+// // Select the parent node
+// var parent = document.getElementById("myList");
+
+// // Create a new list item
+// var newItem = document.createElement("li");
+// newItem.textContent = "Item 3";
+
+// // Get a reference to an existing list item
+// var referenceNode = parent.firstChild; // This will get the first <li> element
+
+// Insert the new list item before the reference node
+parent.insertBefore(newItem, referenceNode);
+// const parent = document.getElementById("parent");
+// const child = document.getElementById("child");
+// const throwawayNode = parent.removeChild(child);
+
 
 //events - repsonds to user input/actions like click, hover, keypress
 const btn=document.querySelector('#btn');
@@ -278,7 +300,9 @@ inpt.addEventListener('keydown',function(e){
 // preventDefault(): A method that, when called, prevents the default action associated with the event from taking place (e.g., preventing a form from being submitted).
 
 // Here's an example of using the event object in a click event:
+// event.currentTarget tells us on which element the event was attached or the element whose eventListener triggered the event.
 
+// event.target tells where the event started.
 
 
 
@@ -358,3 +382,33 @@ function toggleClass() {
     document.querySelector('#abc').classList.toggle('hide');
     console.log("Toggle class function executed.");
 }
+
+
+// stopImmediatePropagation() method:
+// In DOM, we can have multiple handlers for the same event and they are
+// independent of each other. So stopping the execution of one event handler
+// generally doesn’t affect the other handlers of the same target.
+// So when you want to stop further propagations as well as to stop any other
+// event handler of the same event from executing, then you can use
+// 'stopImmediatePropagation()' method.
+// You can stop propagation using the following statementevent.
+// stopImmediatePropagation();
+
+
+//  // Get the button element
+//  var button = document.getElementById('myButton');
+
+//  // Add two event listeners for the click event
+//  button.addEventListener('click', function(event) {
+//      console.log('First event handler');
+//      // Stop propagation immediately
+//      event.stopImmediatePropagation();
+//  });
+
+//  button.addEventListener('click', function(event) {
+//      console.log('Second event handler');
+//  });
+
+//  button.addEventListener('click', function(event) {
+//      console.log('Third event handler');
+//  });

@@ -1,0 +1,14 @@
+.item{
+    display: flex;
+    
+    justify-content: space-between;
+}
+
+li{
+    list-style: none;
+    background-color: red;
+    margin: 20px;
+    padding: 10px;
+    color:white;
+    width: 40%;
+}

@@ -1,0 +1,13 @@
+input:focus{
+    outline: none;
+    background-color: none;
+    border: none;
+}
+
+li:hover{
+    background-color: aqua;
+}
+
+li{
+    width: 8%;
+}
