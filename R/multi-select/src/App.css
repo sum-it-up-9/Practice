@@ -4,10 +4,12 @@ input:focus{
     border: none;
 }
 
-li:hover{
-    background-color: aqua;
-}
+
 
 li{
     width: 8%;
+}
+
+.active{
+    background-color: aquamarine;
 }

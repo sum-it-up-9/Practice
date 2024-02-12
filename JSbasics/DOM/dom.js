@@ -1,8 +1,4 @@
-const pare2=document.querySelector('#child');
-console.log(pare2.previousSibling,'pare2');
 
-console.log(pare2.previousElementSibling);
-console.log(pare2.nextElementSibling);
 
 //DOm is an object which contains representations of all the content on a page (html content in form of tree where it converts each tag inot js object)
 // plus it provides tons of useful methods and proerties like event listeners and all
@@ -175,6 +171,13 @@ par.prepend(prependElement);
 const silkie=document.querySelector('#silkie');
 const newInsert=document.createElement('h3');
 newInsert.append('inserting some text');
+
+
+const pare2=document.querySelector('#child');
+console.log(pare2.previousSibling,'pare2');
+
+console.log(pare2.previousElementSibling);
+console.log(pare2.nextElementSibling);
 
 
 // position

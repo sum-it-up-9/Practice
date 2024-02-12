@@ -10,6 +10,7 @@ const Home = () => {
     const [suggestions,setSuggestions]=useState([]);
     const [selectedUsers,setSelectedUsers]=useState([]);
     const [selectedUserSet,setSelectedUserSet]=useState(new Set());
+    const [currentUser,setCurrentUser]=useState(0);
 
     //async function returns promise object & if we dont return anything from async fn it will return promise object but with undefined in PromiseResult
     async function fetchUsers(){
@@ -32,7 +33,7 @@ const Home = () => {
        fetchUsers();
     },[serachText]);
 
-    function handleClick(e,user){
+    function handleClick(user){
       // //console.dir(e);
       // console.log(user);
       // if(e.target.nodeName ==='LI'){
@@ -63,6 +64,16 @@ const Home = () => {
           removeUser(lastUser);
         }
       }
+      else if(e.key==='ArrowUp'){
+        currentUser>0 ? setCurrentUser(prev=>prev-1) : null;
+      }
+      else if(e.key==='ArrowDown'){
+        currentUser<suggestions.length-1 ? setCurrentUser(prev=>prev+1) : null;
+      }
+      else if(e.key=='Enter'){
+        handleClick(suggestions[currentUser]);
+        setCurrentUser(0);
+      }
     }
 
   return (
@@ -88,7 +99,7 @@ const Home = () => {
         <ul>
             {
                 suggestions && suggestions.map((user,index)=>{
-                    return  !selectedUserSet.has(user?.email) ?  <li  onClick={(e)=>{handleClick(e,user)}} key={user?.id}>{user?.firstName}</li> : <></>
+                    return  !selectedUserSet.has(user?.email) ?  <li className={index===currentUser? `active` : ``} onClick={(e)=>{handleClick(e,user)}} key={user?.id}>{user?.firstName}</li> : <></>
                 })
             }
         </ul>
