@@ -1,0 +1,61 @@
+.stepper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border:1px solid red;
+  position: relative;
+}
+
+.step{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border:1px solid red;
+}
+
+.step-number{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index:2;
+}
+
+.complete{
+  background-color: green;
+  color:white;
+}
+
+.active{
+  background-color: rgb(27, 63, 141);
+  color:white;
+}
+
+.range-box{
+  height: 4px;
+  
+  border: 1px solid blue;
+  background-color:grey;
+  position: absolute;
+  top:25%;
+}
+
+.range-curr{
+  height: 4px;
+  background-color: green;
+
+}
+
+.btn{
+  display: block;
+  margin:auto;
+  margin-top: 10px;
+}
+
+.text-info{
+  text-align: center;
+  margin-top: 20px;
+}
