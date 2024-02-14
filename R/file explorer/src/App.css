@@ -1,0 +1,24 @@
+.nested{
+  margin-left:20px;
+}
+
+.single-folder{
+  background-color: hsl(0, 0%, 80%);
+  display: inline-flex;
+  width: 200px;
+  margin: 5px;
+ justify-content: space-between;
+  padding-left: 7px;
+}
+
+button{
+  float: right;
+}
+
+.singleContainer:hover{
+  cursor: pointer;
+}
+
+.singleContainer{
+ 
+}

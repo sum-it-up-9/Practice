@@ -6,6 +6,7 @@ import { customUseEffect } from './customUseEffect';
 function App() {
   
   const [count,setCount]=useState(0);
+  let [is,setIs]=useState(0);
 
 
   customUseEffect(()=>{
@@ -15,6 +16,13 @@ function App() {
       console.log('cleanup function')
     }
   },)
+
+  // function handleClick(){
+  //   is=is+1;
+  //   console.log(is);
+  // }
+
+  console.log('render');
 
   /*
   this will run only once after initial render
@@ -40,6 +48,7 @@ function App() {
   return (
     <>
       <button onClick={()=>{setCount(prev=>prev+1)}}>increse</button>
+      {/* <button onClick={()=>{ handleClick()}}>click here</button> */}
     </>
   )
 }
