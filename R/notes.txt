@@ -33,6 +33,9 @@ They are one of the fundamental concepts in React and play a crucial role in bui
 allows to use react features like state & other react features inside functional component
 
 
+The state is a built-in React object that is used to contain data or information about the component. A component's state can change over time; whenever it changes, the component re-renders.
+
+
 7.Yes, the setState function in React's useState hook is asynchronous. When you call setState, React schedules an update, and the state change might not be applied immediately. This is done for performance reasons, and React may batch multiple state updates together to optimize rendering.
 
 
@@ -60,24 +63,85 @@ useref return a object whihc has current property & current property holds the r
   },[count]);
   */
 
-  10.The React useMemo Hook returns a memoized value.
-
-Think of memoization as caching a value so that it does not need to be recalculated.
-
-The useMemo Hook only runs when one of its dependencies update.
-
-This can improve performance.
+10.The React useMemo Hook returns a memoized value.
+  Think of memoization as caching a value so that it does not need to be recalculated.
+  The useMemo Hook only runs when one of its dependencies update.
+  This can improve performance.
 
 The useMemo and useCallback Hooks are similar. The main difference is that useMemo returns a memoized value and useCallback returns a memoized function.
 
+11. React memo - syntax export deafult memo(Home); -memo is a higher order component which skips rendering of a component if its props havent changed
 
+12> Pure component is used in class based components which is same as memo (memo is used in functional components)- 
+
+
+13. HOC- it is a react component which takes another react component (as a prop) and returns new component 
 
 11.Navigation in Single-Page Applications (SPAs):
 
-<Link> is typically used in React applications that implement client-side routing, which is common in single-page applications (SPAs). SPAs load a single HTML page and dynamically update the content as the user interacts with the application.
+<Link> is typically used in React applications that implement client-side routing, which is common in single-page applications (SPAs). SPAs load a single HTML page and dynamically 
+update the content as the user interacts with the application.
 The <Link> component is part of a routing library like React Router, and it allows you to define navigation links within your application without triggering a full page reload.
 When a user clicks on a <Link>, React Router updates the URL and renders the appropriate component without causing a full page refresh.
 Preventing Page Reloads:
 
 In a traditional HTML application, clicking on an <a> (anchor) tag might cause a full page reload, which is not desirable in SPAs.
 React's <Link> prevents this default behavior and ensures that navigation is handled within the React application, providing a smoother and more seamless user experience.
+
+
+
+
+12.
+  JavaScript, objects and arrays are reference types. When you compare two objects or arrays using the equality operator (===), it checks if the references to the objects or arrays are the same, not their contents. This means that even if two objects have the same properties with the same values, they won't be considered equal if they are different instances in memory.
+  Similarly, React's default behavior when comparing props and state is to perform a shallow comparison. This means that React checks if the references to the props or state have changed, rather than deeply comparing their contents. If the references are the same, React assumes that the props or state haven't changed and skips the re-render of the component.
+
+  For example, if you have an object like this:
+
+
+  const obj1 = { name: 'John', age: 30 };
+  const obj2 = { name: 'John', age: 30 };
+
+  console.log(obj1 === obj2); // false (different references)
+  Even though obj1 and obj2 have the same properties with the same values, they are considered different objects because they have different references.
+
+  Similarly, when passing props to a React component, if the props are objects or arrays, React will perform a shallow comparison by default. If the references to the props change (even if the contents remain the same), React will consider the props to be different and trigger a re-render of the component.
+
+
+13.
+  Advantages of React.lazy()
+  Enhanced speed: By selectively loading the components needed for the current view and not loading all of the components at once, lazy loading of components can enhance the speed of the application.
+  Improved User Experience: You may improve the user experience by informing users that the application is actively loading material by utilizing Suspense to display a loading indication.
+  Code Splitting: One of lazy()'s main advantages is that it makes code splitting possible. The process of code splitting involves breaking up the code of your application into smaller, on-demand bundles. This minimizes the initial bundle size and quickens your application's loading time.
+
+
+  14.
+      React.Suspense works together with a feature called the "Suspense Boundary". When React encounters a Suspense component during the rendering process, it sets up a boundary. 
+      Any asynchronous work initiated within the subtree of this boundary will be intercepted by React.
+
+      Here's what happens internally:
+
+      When a component wrapped in Suspense attempts to render, React checks if any async work (like a Promise) is initiated within its subtree.
+
+      If there's async work, React will "suspend" the rendering of that component and its subtree. Instead of immediately rendering the component, React will wait until the 
+      promise resolves or data is available.
+
+      React keeps track of which parts of the component tree are waiting for async data to resolve.
+
+      Once the promise resolves or the data is available, React will resume rendering the suspended component and its subtree. If the data fetches successfully, the 
+      loading UI will be replaced with the actual content.
+
+      In other words, React uses a combination of component wrapping, internal tracking, and promise interception to handle suspending rendering until async work is completed. 
+      This mechanism allows React to coordinate the rendering process with asynchronous operations and manage loading states more effectively.
+
+
+  15.
+
+    Error boundaries can’t catch all errors. They’re unable to detect mistakes in event handlers, asynchronous programming or server-side rendering, for instance.
+  Error boundaries can add overhead to your application. This is necessary so that they can monitor the component tree’s current condition and identify faults.
+  Error boundaries can make it difficult to debug errors. This is due to the fact that they can hide the initial mistake and make it challenging to identify the problem’s underlying cause.
+  Only problems that happen during rendering, in lifecycle methods, or in the constructors of the entire tree below them can be caught by error boundaries. Event handler faults or 
+  problems in asynchronous code, such as setTimeout or Promise callbacks, won't be caught by them.
+  It doesn’t replace good coding principles. While it catches unexpected errors, your components should still have strong error handling and validation processes. 
+  Error boundaries can’t catch errors that occur in event handlers such as onClick and onChange. In some circumstances, try…catch blocks or other error handling strategies will be required.
+  The componentDidCatch lifecycle action and class components are used to implement error bounds. They can’t be directly used with functional components. However, you may
+   achieve a similar feature with functional components by using the useErrorBoundary hook from third-party libraries.

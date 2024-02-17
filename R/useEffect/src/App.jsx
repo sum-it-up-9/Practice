@@ -1,5 +1,5 @@
 import { useState,useEffect } from 'react'
-
+import CustomFetchHook from './CustomFetchHook';
 import './App.css';
 import { customUseEffect } from './customUseEffect';
 
@@ -9,13 +9,13 @@ function App() {
   let [is,setIs]=useState(0);
 
 
-  customUseEffect(()=>{
-    console.log('inside useeffet');
+  // customUseEffect(()=>{
+  //   console.log('inside useeffet');
 
-    return ()=>{
-      console.log('cleanup function')
-    }
-  },)
+  //   return ()=>{
+  //     console.log('cleanup function')
+  //   }
+  // },)
 
   // function handleClick(){
   //   is=is+1;
@@ -45,10 +45,19 @@ function App() {
   },[count]);
   */
 
+
+  // useEffect(()=>{
+  //   console.log('in');
+  //   return ()=>{
+  //     console.log('inside return');
+  //   }
+  // },[count]);
+
   return (
     <>
       <button onClick={()=>{setCount(prev=>prev+1)}}>increse</button>
       {/* <button onClick={()=>{ handleClick()}}>click here</button> */}
+      {/* <CustomFetchHook/> */}
     </>
   )
 }

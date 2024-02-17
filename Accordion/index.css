@@ -1,0 +1,8 @@
+
+.ans{
+    display: none;
+}
+
+.toggleClass .ans{
+    display: block;
+}
