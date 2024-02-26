@@ -1,6 +1,6 @@
 const AllaccordionContainer=document.querySelectorAll('.accordion-container');
 const InputCheckedBox=document.querySelector('#checkbox');
-console.log(InputCheckedBox.checked);
+//console.log(InputCheckedBox.checked);
 
 function closeAll(){
     AllaccordionContainer.forEach(item=>{
@@ -11,12 +11,10 @@ function closeAll(){
 }
 
 InputCheckedBox.addEventListener('change',function(){
-    if(InputCheckedBox.checked){
-
-    }
-    else{
+    if(!InputCheckedBox.checked){
         closeAll();
     }
+   
 })
 
 
