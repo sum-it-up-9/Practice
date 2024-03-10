@@ -1,3 +1,5 @@
+clearbit
+
 1. What are functional components in React?
 Functional components are just javascript functions, which contains some logic to perform certain actions. These components accept 
 the data as props and return the React element which is nothing HTML content. With introduction to the React 16, 
@@ -145,3 +147,28 @@ React's <Link> prevents this default behavior and ensures that navigation is han
   Error boundaries can’t catch errors that occur in event handlers such as onClick and onChange. In some circumstances, try…catch blocks or other error handling strategies will be required.
   The componentDidCatch lifecycle action and class components are used to implement error bounds. They can’t be directly used with functional components. However, you may
    achieve a similar feature with functional components by using the useErrorBoundary hook from third-party libraries.
+
+
+
+16. In redux we use redux-saga or redux-thunk to execute Asynchronous javascript bcoz since reducers are pure fucntions we cannot 
+perform any side effects other than 
+receiving the state and returning it. So we have to use Action creators for performing side effects asynchronous tasks.
+
+//never mutate redux state outside reducer. if we are using simply redux then always return new state do not mutate but if we are using 
+redux Toolkit or something we can mutate the state in reducers.
+
+17.If we directly update the state instead of setstate() funciton from useState then it wont re-render
+
+28. cookies are primarily used for session management and tracking user behavior, localStorage is used for persistent client-side
+ storage across sessions, and sessionStorage is used for temporary storage within a single browsing session
+
+ Cookies can be set by server and client side but localStorage & sessionStorage only by client side.
+ localStorage can be used to save language prefernece of user so when user comes back again it can be picked from localStorage
+ session storage can be used to store sesison specific data like while filling the form user refreshes that data can be persisted in sessionStorage
+ cookies are used to track user specific data like auth token if logged in or (session id if not loggied in) so that when browsing sever will know
+ which user it is like to persisst cart fucntionality we can use cookies, so when guest user comes on webiste a session will be created in serverand session id will be stored in ccokies
+ so when user navugates within the website and add to cart we can track that data on server and send it to client using session id stored in cookies.
+ 
+
+
+
